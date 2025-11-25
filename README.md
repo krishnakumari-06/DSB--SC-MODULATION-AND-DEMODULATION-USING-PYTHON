@@ -1,4 +1,4 @@
-# DSB--SC-MODULATION-AND-DEMODULATION-USING-PYTHON
+ # DSB--SC-MODULATION-AND-DEMODULATION-USING-PYTHON
 
 __AIM__:
 
@@ -27,9 +27,51 @@ __Procedure__:
 5) (Optional) Add noise
 6) Coherent demodulation (multiply by synchronized carrier)
 7) Low-pass filter to recover message
+   
+__program__:
+
+```
+import numpy as np          # REQUIRED IMPORT
+import matplotlib.pyplot as plt
+
+Ac = 10.5
+fc = 5070
+Am = 7.5
+fm = 570
+fs = 50000
+
+t = np.arange(0, 2/fm, 1/fs)
+
+Wm = 2 * np.pi * fm
+Wc = 2 * np.pi * fc
+
+Em = Am * np.sin(Wm * t)
+Ec = Ac * np.sin(Wc * t)
+
+Edsbsc = ((Am / 2) * np.cos((Wc - Wm) * t)) - ((Am / 2) * np.cos((Wc + Wm) * t))
+
+plt.figure(figsize=(10, 6))
+
+plt.subplot(3, 1, 1)
+plt.plot(t, Em)
+plt.grid()
+
+plt.subplot(3, 1, 2)
+plt.plot(t, Ec)
+plt.grid()
+
+plt.subplot(3, 1, 3)
+plt.plot(t, Edsbsc)
+plt.grid()
+
+plt.tight_layout()
+plt.show()
+```
 
    __Tabulation__:
+![499299868-c93c44d5-5571-4e5b-93ae-09aa1e1d835a](https://github.com/user-attachments/assets/cb99471b-c3c6-4ca9-8a3b-2e4f4b84ab35)
 
    __Output__:
+<img width="989" height="590" alt="image" src="https://github.com/user-attachments/assets/6579dbbc-e55e-4baf-a408-040386b2154b" />
 
    __Result__:
