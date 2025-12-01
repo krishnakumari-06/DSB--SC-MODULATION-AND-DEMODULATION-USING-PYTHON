@@ -75,3 +75,5 @@ plt.show()
 <img width="989" height="590" alt="image" src="https://github.com/user-attachments/assets/6579dbbc-e55e-4baf-a408-040386b2154b" />
 
    __Result__:
+
+   Thus, the program executed successfully.
